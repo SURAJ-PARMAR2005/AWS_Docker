@@ -4,6 +4,7 @@ import { Server } from "socket.io";
 import {YSocketIO} from "y-socket.io/dist/server";
 
 const app = express();
+app.use(express.static("public"));
 const httpServer = createServer(app);
 
 //now create a io server responsible for two way communication
@@ -25,12 +26,6 @@ ySocketIO.initialize();
 
 //below are health check routes which are used to check the health of the server , mostly used on dashboards etc
 
-app.get("/",(req,res) =>{
-    res.status(200).json({
-        message : "hello world",
-        success: true,
-    })
-})
 
 app.get('/health',(req,res) => {
     res.status(200).json({
