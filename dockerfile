@@ -16,7 +16,7 @@ FROM  node:20-alpine
 
 COPY ./backend /app
 
-WORKDIR /app
+WORKDIR /app 
 
 RUN npm install
 
